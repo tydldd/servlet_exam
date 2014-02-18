@@ -27,23 +27,23 @@ public class VisitFilter implements Filter{
 
         String contentPath = request.getContextPath();
         System.out.println("访问路径：" + contentPath);
-
         String uri = request.getRequestURI();
         System.out.println("uri:" + uri);
         System.out.println("url:" + request.getRequestURL().toString());
 
         if(uri.contains(".jsp") || uri.contains("/*")){
             if(!uri.contains("login.jsp") && !uri.contains("verifyCodeImg.jsp") && !uri.contains("/login")){
-                System.out.println("****需要被过滤");
+                System.out.println("********需要被过滤********");
                 HttpSession session = request.getSession();
                 if (session.isNew() || session.getAttribute("user") == null){
                     response.sendRedirect("jsp/login.jsp");
+                }else{
+                	System.out.println("session中存在user信息，可以访问");
                 }
             }
         }
 
         //沿过滤器链将请求传递到下一个过滤器,或发送到目的地
-        System.out.println("***不需要被过滤");
         filterChain.doFilter(request, response);
     }
 

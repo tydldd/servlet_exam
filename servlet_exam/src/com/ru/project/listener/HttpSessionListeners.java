@@ -20,23 +20,40 @@ public class HttpSessionListeners  implements HttpSessionListener, HttpSessionAt
 
     @Override
     public void attributeAdded(HttpSessionBindingEvent httpSessionBindingEvent) {
-        HttpSession session = httpSessionBindingEvent.getSession();
-        String handSession = session.getAttribute("handleSession").toString();
+    	System.out.println("添加session的属性-start");
+        String handSession = null;
+		try {
+			HttpSession session = httpSessionBindingEvent.getSession();
+			Object res = session.getAttribute("handleSession");
+			if(res !=null){
+				handSession = res.toString();
+			}
+		} catch (Exception e) {
+			log.error("添加session的属性失败",e);
+		}
         System.out.println("添加session的属性：" + handSession);
     }
 
     @Override
     public void attributeRemoved(HttpSessionBindingEvent httpSessionBindingEvent) {
-        HttpSession session = httpSessionBindingEvent.getSession();
-        String handSession = (String) session.getAttribute("handleSession");
+        String handSession = null;
+		try {
+			HttpSession session = httpSessionBindingEvent.getSession();
+			Object res = session.getAttribute("handleSession");
+			if(res != null){
+				handSession = res.toString();
+			}
+		} catch (Exception e) {
+			log.error("删除session的属性失败",e);
+		}
         System.out.println("删除session的属性：" + handSession);
     }
 
     @Override
     public void attributeReplaced(HttpSessionBindingEvent httpSessionBindingEvent) {
         HttpSession session = httpSessionBindingEvent.getSession();
-        String handSession = session.getAttribute("handleSession").toString();
-        System.out.println(handSession);
+//        String handSession = session.getAttribute("handleSession").toString();
+//        System.out.println(handSession);
     }
 
     /**

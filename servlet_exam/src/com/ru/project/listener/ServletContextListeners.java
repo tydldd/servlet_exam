@@ -39,9 +39,7 @@ public class ServletContextListeners implements ServletContextListener, ServletC
     public void contextInitialized(ServletContextEvent sce) {
         int number = 0;
         System.out.println("servletContext环境创建，web启动");
-
         ServletContext sc = sce.getServletContext();
-
         //servletcontgext保存一个sessonid列表，这个列表在登陆成功且是一个新的session时，+1
         List<String> list = new ArrayList<String>();
         sc.setAttribute("sessionList", list);

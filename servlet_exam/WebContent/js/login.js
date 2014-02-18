@@ -15,7 +15,7 @@ function logCheck(){
     };
     $.ajax({
         type:"post",
-        url:"/login",
+        url:"login",
         data:params,
         dataType:"json",
         success:function(data){

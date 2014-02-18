@@ -4,6 +4,7 @@ import javax.servlet.ServletRequestAttributeEvent;
 import javax.servlet.ServletRequestAttributeListener;
 import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by 成如 on 13-12-14.
@@ -17,12 +18,14 @@ public class RequestListener implements ServletRequestListener, ServletRequestAt
 
     @Override
     public void requestDestroyed(ServletRequestEvent servletRequestEvent) {
-        System.out.println("一个新的request请求");
+    	HttpServletRequest request = (HttpServletRequest) servletRequestEvent.getServletRequest();
+    	System.out.println("*************request请求结束:" + request.getRequestURL().toString());
     }
 
     @Override
     public void requestInitialized(ServletRequestEvent servletRequestEvent) {
-        System.out.println("request请求结束");
+    	HttpServletRequest request = (HttpServletRequest) servletRequestEvent.getServletRequest();
+        System.out.println("**************一个新的request请求:" + request.getRequestURL().toString());
     }
 
     /**

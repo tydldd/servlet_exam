@@ -103,6 +103,15 @@
         <url-pattern>/servletConfig</url-pattern>
     </servlet-mapping>
 
+	<!-- 文件上传 -->
+	<servlet>
+        <servlet-name>uploadFile</servlet-name><!--servlet名称（最好和类名一致）和mapping的名称保持一致-->
+        <servlet-class>com.ru.project.up_down.UploadFile</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>uploadFile</servlet-name>
+        <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
     <!--servlet的全局参数，所有的servlet都可以使用-->
     <context-param>
         <param-name>globalparam</param-name>

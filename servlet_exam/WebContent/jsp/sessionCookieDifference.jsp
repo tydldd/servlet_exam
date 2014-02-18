@@ -84,7 +84,7 @@
                 没有禁用直接返回参数URL，如果禁用，则在参数URL中附加session ID，返回编码后的URL
             </p>
             <a href="<%out.println(response.encodeURL("jsp/redirectPage.jsp"));%>">cookie禁用，重写url--测试encodeURL()</a><br>
-            <a href="<%out.println(response.encodeURL("/encodeurl"));%>">cookie禁用，重写url--测试encodeRedirectURL()</a>
+            <a href="<%out.println(response.encodeURL("encodeurl"));%>">cookie禁用，重写url--测试encodeRedirectURL()</a>
         </div>
     </div>
 
