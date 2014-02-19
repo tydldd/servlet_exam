@@ -33,7 +33,8 @@ public class Log4jInitMethod implements Servlet{
          *DOMConfigurator.configure ( String filename ) ：读取XML形式的配置文件。
          */
         PropertyConfigurator.configure(ROOTPATH);
-        log.info("log4j被初始化");
+        log.info("log4j被初始化-log");
+        System.out.println("log4j被初始化-system");
     }
 
     @Override

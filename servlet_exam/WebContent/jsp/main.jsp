@@ -38,9 +38,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <p><input type="button" value="安全退出" onclick="logout()"></p>
     </div>
     <div><a href="/documents/解读Servlet生命周期.doc">Sevlet生命周期</a></div>
-    <div><a href="jumpPage">servlet跳转页面-重定向和转发</a></div>
+    <div><a href="jumpPage.do">servlet跳转页面-重定向和转发</a></div>
     <div><a href="jsp/difference.jsp">getAttribute()和getParameter()的区别</a></div>
-    <div><a href="servletConfig">ServletConfig对象</a> --注：ServletConfig可以得到在web.xmlz中配置的参数信息</div>
+    <div><a href="servletConfig.do">ServletConfig对象</a> --注：ServletConfig可以得到在web.xmlz中配置的参数信息</div>
     <div><a href="jsp/servletcontext.jsp">ServletContext对象可以让所有servlet访问</a></div>
     <div><a href="<%=url%>">Session和Cookie的区别</a></div>
     <div><a href="jsp/fileUpDown.jsp">servlet使用common-fileupload上传文件</a></div>

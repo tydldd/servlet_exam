@@ -31,11 +31,11 @@ public class VisitFilter implements Filter{
         System.out.println("uri:" + uri);
         System.out.println("url:" + request.getRequestURL().toString());
 
-        if(uri.contains(".jsp") || uri.contains("/*")){
-            if(!uri.contains("login.jsp") && !uri.contains("verifyCodeImg.jsp") && !uri.contains("/login")){
-                System.out.println("********需要被过滤********");
+        if(uri.endsWith(".jsp") || uri.endsWith(".do")){
+            if(!uri.contains("login.jsp") && !uri.contains("verifyCodeImg.jsp") && !uri.contains("login.do")){
                 HttpSession session = request.getSession();
-                if (session.isNew() || session.getAttribute("user") == null){
+                if (session.getAttribute("user") == null){
+                	System.out.println("session不存在");
                     response.sendRedirect("jsp/login.jsp");
                 }else{
                 	System.out.println("session中存在user信息，可以访问");
